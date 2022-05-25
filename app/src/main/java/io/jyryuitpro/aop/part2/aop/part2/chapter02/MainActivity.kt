@@ -34,7 +34,8 @@ class MainActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.textView3),
             findViewById<TextView>(R.id.textView4),
             findViewById<TextView>(R.id.textView5),
-            findViewById<TextView>(R.id.textView6)
+            findViewById<TextView>(R.id.textView6),
+            findViewById<TextView>(R.id.textView7)
         )
     }
 
@@ -49,8 +50,11 @@ class MainActivity : AppCompatActivity() {
         numberPicker.minValue = 1
         numberPicker.maxValue = 45
 
+        // 자동 생성 시작
         initRunButton()
+        // 번호 추가하기
         initAddButton()
+        // 초기화
         initClearButton()
     }
 
@@ -79,8 +83,8 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (pickNumberSet.size >=5) {
-                Toast.makeText(this, "번호는 5개까지만 선택할 수 있습니다.", Toast.LENGTH_SHORT).show()
+            if (pickNumberSet.size >=7) {
+                Toast.makeText(this, "번호는 7개까지만 선택할 수 있습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -132,7 +136,7 @@ class MainActivity : AppCompatActivity() {
 
         numberList.shuffle()
 
-        val newList = pickNumberSet.toList() + numberList.subList(0, 6 - pickNumberSet.size)
+        val newList = pickNumberSet.toList() + numberList.subList(0, 7 - pickNumberSet.size)
 
         return newList.sorted()
     }
